@@ -1,0 +1,6 @@
+---
+# handlers file for multi_server
+- name: restart_http
+  service:
+    name: httpd
+    state: restarted

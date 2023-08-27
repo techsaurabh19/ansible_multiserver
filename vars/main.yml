@@ -1,0 +1,12 @@
+---
+# vars file for multi_server
+server:
+  - httpd
+  - mysql
+server_name:
+  - httpd_server
+  - mysql_server
+service_name:
+  - httpd
+web_server:
+  - httpd

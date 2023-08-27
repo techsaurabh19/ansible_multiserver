@@ -1,0 +1,23 @@
+---
+# tasks file for multi_server
+- name: install "{{ server_name }}"
+  yum:
+    name: "{{ server }}"
+    state: present
+- name: start and enabled
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+- name: firewalld start
+  firewalld:
+    port: 80/tcp
+    state: enabled
+    immediate: yes
+    permanent: true
+
+- name: copy template
+  template:
+    src: template.j2
+    dest: /var/www/html/index.htnl
+  notify: restart_http
